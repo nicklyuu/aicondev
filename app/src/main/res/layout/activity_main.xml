@@ -4,41 +4,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/black"
     tools:context=".MainActivity">
 
+    <com.skydroid.fpvplayer.FPVWidget
+        android:id="@+id/fpvWidget"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextClock
+        android:id="@+id/time_clock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:format12Hour="HH:mm"
+        android:format24Hour="HH:mm"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextClock
+        android:id="@+id/date_clock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:format12Hour="yyyy-MM-dd"
+        android:format24Hour="yyyy-MM-dd"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/time_clock"
+        app:layout_constraintTop_toBottomOf="@+id/time_clock" />
+
     <TextView
-        android:id="@+id/textView_title"
+        android:id="@+id/title_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="摇杆信号控制 Demo"
-        android:textColor="@android:color/black"
+        android:alpha="0.8"
+        android:shadowColor="@color/cyan_500"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="15"
+        android:text="Aicon Remote Workstation"
+        android:textColor="@color/cyan_500"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- ✅ 恢复为简单的 View -->
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/mode_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Remote Mode"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
-        android:id="@+id/square_view"
+        android:id="@+id/excavator_image"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginEnd="16dp"
         android:src="@drawable/excavator"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_debug_info"
+        android:id="@+id/footer_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Powered by MechAI"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/location_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/square_view"
-        tools:text="状态: 已连接\nCH0: 1500 | CH1: 1500" />
+        tools:text="Lat: 37.422, Lon: -122.084" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
